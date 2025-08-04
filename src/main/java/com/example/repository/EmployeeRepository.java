@@ -12,6 +12,12 @@ import org.springframework.stereotype.Repository;
 
 import com.example.domain.Employee;
 
+/**
+ * employees テーブルにアクセスするためのリポジトリクラス。
+ * 
+ * 従業員情報の検索、取得、更新処理をします
+ * @author higuchi
+ */
 @Repository
 public class EmployeeRepository {
   /**
@@ -21,6 +27,9 @@ public class EmployeeRepository {
   @Autowired
   private NamedParameterJdbcTemplate templete;
 
+  /**
+   * ResultSet の 1 行分のデータを Employee オブジェクトに変換する RowMapper。
+   */
   private static final RowMapper<Employee> EMPLOYEE_ROW_MAPPER = (rs, i) -> {
     Employee employee = new Employee();
     employee.setId(rs.getInt("id"));
@@ -38,6 +47,11 @@ public class EmployeeRepository {
     return employee;
   };
 
+  /**
+   * 全従業員情報を入社日の降順で取得します。
+   * 
+   * @return 従業員のリスト、ない場合はnullが返ります。
+   */
   public List<Employee> findAll() {
     String sql = "select id, name, image, gender, hiredate, mailAdres, zipCode, addres, telephone, salary, characteristics, dependentsCount "
                   + "from employees order by hiredate desc;";
@@ -50,6 +64,12 @@ public class EmployeeRepository {
     return employeeList;
   }
 
+  /**
+   * 指定されたIDの従業員情報を取得します。
+   * 
+   * @param id 取得対象の従業員ID
+   * @return 指定された従業員情報、ない場合はnull
+   */
   public Employee load(Integer id) {
     String sql = "select * from employees where id = :id;";
 
@@ -62,6 +82,10 @@ public class EmployeeRepository {
     }
   }
 
+  /**
+   * 指定したidから、従業員情報を更新します
+   * @param employee 更新対象の従業員情報
+   */
   public void update(Employee employee) {
     SqlParameterSource param = new BeanPropertySqlParameterSource(employee);
 
