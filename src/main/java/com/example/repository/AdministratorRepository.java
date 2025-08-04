@@ -29,7 +29,7 @@ public class AdministratorRepository {
     Administrator administrator = new Administrator();
     administrator.setId(rs.getInt("id"));
     administrator.setName(rs.getString("name"));
-    administrator.setMailAddres(rs.getString("mailAddres"));
+    administrator.setMailAddress(rs.getString("mailAddress"));
     administrator.setPassword(rs.getString("password"));
     return administrator;
   };
@@ -45,8 +45,8 @@ public class AdministratorRepository {
     SqlParameterSource param = new BeanPropertySqlParameterSource(administrator);
 
     String insertSql 
-      = "insert into administrators(name, mailAddres, password) "
-        + "values(:name, :mailAddres, :password);";
+      = "insert into administrators(name, mailAddress, password) "
+        + "values(:name, :mailAddress, :password);";
       templete.update(insertSql, param);
   }
 
@@ -54,15 +54,15 @@ public class AdministratorRepository {
    * メールアドレスと、パスワードに一致する管理者情報を取得
    * 一致する管理者がいない場合、nullを返します。
    * 
-   * @param mailAddres メールアドレス
+   * @param mailAddress メールアドレス
    * @param password パスワード
    * @return 管理者情報、検索できない場合はnull
    */
-  public Administrator findByMailAddresAndPassword(String mailAddres, String password) {
-    String sql = "select id, name, mailAddres, password "
-                  + "from administrators where mailAddres = :mailAddres and password = :password;";
+  public Administrator findByMailAddressAndPassword(String mailAddress, String password) {
+    String sql = "select id, name, mailAddress, password "
+                  + "from administrators where mailAddress = :mailAddress and password = :password;";
     
-    SqlParameterSource param = new MapSqlParameterSource().addValue("mailAddres", mailAddres).addValue("password", password);
+    SqlParameterSource param = new MapSqlParameterSource().addValue("mailAddress", mailAddress).addValue("password", password);
 
     try {
       return templete.queryForObject(sql, param, ADMINISTRATOR_ROW_MAPPER);

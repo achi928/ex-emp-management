@@ -8,7 +8,7 @@ package com.example.domain;
 public class Administrator {
   private Integer id;
   private String name;
-  private String mailAddres;
+  private String mailAddress;
   private String password;
 
   public Integer getId() {
@@ -27,12 +27,12 @@ public class Administrator {
     this.name = name;
   }
 
-  public String getMailAddres() {
-    return mailAddres;
+  public String getMailAddress() {
+    return mailAddress;
   }
 
-  public void setMailAddres(String mailAddres) {
-    this.mailAddres = mailAddres;
+  public void setMailAddress(String mailAddress) {
+    this.mailAddress = mailAddress;
   }
 
   public String getPassword() {
@@ -45,7 +45,7 @@ public class Administrator {
 
   @Override
   public String toString() {
-    return "Administrator [id=" + id + ", name=" + name + ", mailAddres=" + mailAddres + ", password=" + password + "]";
+    return "Administrator [id=" + id + ", name=" + name + ", mailAddress=" + mailAddress + ", password=" + password + "]";
   }
 
 }

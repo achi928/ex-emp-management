@@ -12,8 +12,8 @@ public class Employee {
   private String name;
   private String image;
   private String gender;
-  private Date hiredate;
-  private String mailAddres;
+  private Date hireDate;
+  private String mailAddress;
   private String zipCode;
   private String address;
   private String telephone;
@@ -23,15 +23,15 @@ public class Employee {
 
   public Employee() {}
 
-  public Employee(Integer id, String name, String image, String gender, Date hiredate, String mailAddres,
+  public Employee(Integer id, String name, String image, String gender, Date hireDate, String mailAddress,
       String zipCode, String address, String telephone, Integer salary, String characteristics,
       Integer dependentsCount) {
     this.id = id;
     this.name = name;
     this.image = image;
     this.gender = gender;
-    this.hiredate = hiredate;
-    this.mailAddres = mailAddres;
+    this.hireDate = hireDate;
+    this.mailAddress = mailAddress;
     this.zipCode = zipCode;
     this.address = address;
     this.telephone = telephone;
@@ -72,20 +72,20 @@ public class Employee {
     this.gender = gender;
   }
 
-  public Date getHiredate() {
-    return hiredate;
+  public Date getHireDate() {
+    return hireDate;
   }
 
-  public void setHiredate(Date hiredate) {
-    this.hiredate = hiredate;
+  public void setHireDate(Date hireDate) {
+    this.hireDate = hireDate;
   }
 
-  public String getMailAddres() {
-    return mailAddres;
+  public String getMailAddress() {
+    return mailAddress;
   }
 
-  public void setMailAddres(String mailAddres) {
-    this.mailAddres = mailAddres;
+  public void setMailAddress(String mailAddress) {
+    this.mailAddress = mailAddress;
   }
 
   public String getZipCode() {
@@ -138,8 +138,8 @@ public class Employee {
 
   @Override
   public String toString() {
-    return "Employee [id=" + id + ", name=" + name + ", image=" + image + ", gender=" + gender + ", hiredate="
-        + hiredate + ", mailAddres=" + mailAddres + ", zipCode=" + zipCode + ", address=" + address + ", telephone="
+    return "Employee [id=" + id + ", name=" + name + ", image=" + image + ", gender=" + gender + ", hireDate="
+        + hireDate + ", mailAddress=" + mailAddress + ", zipCode=" + zipCode + ", address=" + address + ", telephone="
         + telephone + ", salary=" + salary + ", characteristics=" + characteristics + ", dependentsCount="
         + dependentsCount + "]";
   }
