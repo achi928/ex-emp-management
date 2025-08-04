@@ -2,6 +2,11 @@ package com.example.domain;
 
 import java.util.Date;
 
+/**
+ * 従業員の情報を表すドメインクラス
+ * 
+ * @author higuchi
+ */
 public class Employee {
   private Integer id;
   private String name;
