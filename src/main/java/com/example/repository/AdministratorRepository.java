@@ -1,7 +1,5 @@
 package com.example.repository;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
@@ -66,12 +64,11 @@ public class AdministratorRepository {
     
     SqlParameterSource param = new MapSqlParameterSource().addValue("mailAddres", mailAddres).addValue("password", password);
 
-    List<Administrator> administratorList = templete.query(sql, param, ADMINISTRATOR_ROW_MAPPER);
-
-    if (administratorList.size() == 0) {
+    try {
+      return templete.queryForObject(sql, param, ADMINISTRATOR_ROW_MAPPER);
+    } catch(Exception e) {
       return null;
     }
-    return administratorList.get(0);
   }
 
 }
