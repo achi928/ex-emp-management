@@ -51,7 +51,7 @@ public class AdministratorRepository {
         + "values(:name, :mailAddress, :password);";
     KeyHolder keyHolder = new GeneratedKeyHolder();
     String[] keyColumnNames = {"id"};
-    templete.update(insertSql, param);
+    templete.update(insertSql, param, keyHolder, keyColumnNames);
     administrator.setId(keyHolder.getKey().intValue());
   }
 
