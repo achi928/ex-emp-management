@@ -17,4 +17,13 @@ import com.example.repository.AdministratorRepository;
 public class AdministratorServise {
   @Autowired
   private AdministratorRepository repository;
+
+  /* 管理者情報を登録します。
+   *
+   * @param administrator 登録する管理者情報
+   */
+  public void insert(Administrator administrator) {
+     repository.insert(administrator);
+  }
+
 }

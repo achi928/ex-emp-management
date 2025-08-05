@@ -1,10 +1,16 @@
 package com.example.controller;
 
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.example.domain.Administrator;
 import com.example.form.InsertAdministratorForm;
+import com.example.form.LoginForm;
+import com.example.service.AdministratorServise;
 
 /**
  * 管理者機能のコントローラークラス
@@ -14,6 +20,9 @@ import com.example.form.InsertAdministratorForm;
 @Controller
 @RequestMapping("/")
 public class AdiministratorController {
+
+  @Autowired
+  private AdministratorServise servise;
 
   /**
    * 
@@ -25,6 +34,34 @@ public class AdiministratorController {
   @GetMapping("/toInsert")
   public String toInsert(InsertAdministratorForm form) {
     return "administrator/insert";
+  }
+
+  /**
+   * 
+   * 管理者情報をインサートし、ログイン画面へリダイレクト
+   * 
+   * @param form フォームから送られてきた管理者情報
+   * @return ログイン画面へリダイレクトするパス
+   */
+  @PostMapping("/insert")
+  public String insert(InsertAdministratorForm form) {
+    Administrator administrator = new Administrator();
+    BeanUtils.copyProperties(form, administrator);
+    servise.insert(administrator);
+    return "redirect:/";
+  }
+
+  /**
+   * 
+   * ログイン画面へ遷移
+   * 
+   * @param form ログインフォーム情報
+   * @return ログイン画面へのパス
+   */
+  @GetMapping("/")
+  public String toLogin(LoginForm form) {
+    // フォームを引数で受け取ると、モデルオブジェクトに自動的に格納される
+    return "administrator/login";
   }
   
 
