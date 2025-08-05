@@ -22,5 +22,4 @@ public class AdministratorServise {
      repository.insert(administrator);
   }
 
-  // public 
 }
