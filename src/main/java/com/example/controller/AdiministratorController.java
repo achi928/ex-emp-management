@@ -41,7 +41,7 @@ public class AdiministratorController {
    * 管理者情報をインサートし、ログイン画面へリダイレクト
    * 
    * @param form フォームから送られてきた管理者情報
-   * @return ログイン画面へリダイレクトするURL
+   * @return ログイン画面へリダイレクトするパス
    */
   @PostMapping("/insert")
   public String insert(InsertAdministratorForm form) {
@@ -51,6 +51,13 @@ public class AdiministratorController {
     return "redirect:/";
   }
 
+  /**
+   * 
+   * ログイン画面へ遷移
+   * 
+   * @param form ログインフォーム情報
+   * @return ログイン画面へのパス
+   */
   @GetMapping("/")
   public String toLogin(LoginForm form) {
     // フォームを引数で受け取ると、モデルオブジェクトに自動的に格納される
