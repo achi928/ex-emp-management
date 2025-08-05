@@ -17,10 +17,4 @@ import com.example.repository.AdministratorRepository;
 public class AdministratorServise {
   @Autowired
   private AdministratorRepository repository;
-
-  // public Administrator load(Integer id) {
-  //   return repository.load(id);
-  // }
-
-  // public 
 }

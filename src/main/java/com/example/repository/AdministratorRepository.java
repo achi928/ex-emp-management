@@ -39,7 +39,7 @@ public class AdministratorRepository {
   /**
    * 管理者をデータベースに登録するメソッド
    * 
-   * 引数で受け取った値をSqlParameterSourceで実行する
+   * 引数で受け取った値を実行する
    * 
    * @param administrator 登録する管理者情報
    */
