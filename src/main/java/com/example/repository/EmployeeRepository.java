@@ -39,7 +39,7 @@ public class EmployeeRepository {
     employee.setHireDate(rs.getDate("hire_date"));
     employee.setMailAddress(rs.getString("mail_address"));
     employee.setZipCode(rs.getString("zip_code"));
-    employee.setAddress(rs.getString("addres"));
+    employee.setAddress(rs.getString("address"));
     employee.setTelephone(rs.getString("telephone"));
     employee.setSalary(rs.getInt("salary"));
     employee.setCharacteristics(rs.getString("characteristics"));
@@ -53,8 +53,8 @@ public class EmployeeRepository {
    * @return 従業員のリスト、ない場合はnullが返ります。
    */
   public List<Employee> findAll() {
-    String sql = "select id, name, image, gender, hire_date, mailAdres, zip_code, addres, telephone, salary, characteristics, dependents_count "
-                  + "from employees order by hireDate desc;";
+    String sql = "select id, name, image, gender, hire_date, mail_address, zip_code, address, telephone, salary, characteristics, dependents_count "
+                  + "from employees order by hire_date desc;";
     
     List<Employee> employeeList = templete.query(sql, EMPLOYEE_ROW_MAPPER);
 
@@ -90,7 +90,7 @@ public class EmployeeRepository {
     SqlParameterSource param = new BeanPropertySqlParameterSource(employee);
 
     String updatesql = "update employees set name = :name, image = :image, gender = :gender, hire_date = :hireDate, mail_address = :mailAddress, "
-                  + "zip_code = :zipCode, addres = :addres, telephone = :telephone, salary = :salary, characteristics = :characteristics, dependentsCount = :dependentsCount "
+                  + "zip_code = :zipCode, addres = :addres, telephone = :telephone, salary = :salary, characteristics = :characteristics, dependents_count = :dependentsCount "
                   + " where id = :id";
     
     templete.update(updatesql, param);

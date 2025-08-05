@@ -67,7 +67,7 @@ public class AdministratorRepository {
     String sql = "select id, name, mail_address, password "
                   + "from administrators where mail_address = :mailAddress and password = :password;";
     
-    SqlParameterSource param = new MapSqlParameterSource().addValue("mailAddress", mailAddress).addValue("password", password);
+    SqlParameterSource param = new MapSqlParameterSource().addValue("mail_address", mailAddress).addValue("password", password);
 
     try {
       return templete.queryForObject(sql, param, ADMINISTRATOR_ROW_MAPPER);
