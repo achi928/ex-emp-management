@@ -18,6 +18,10 @@ public class AdministratorServise {
   @Autowired
   private AdministratorRepository repository;
 
+  /* 管理者情報を登録します。
+   *
+   * @param administrator 登録する管理者情報（名前・メールアドレス・パスワードを含む）
+   */
   public void insert(Administrator administrator) {
      repository.insert(administrator);
   }
