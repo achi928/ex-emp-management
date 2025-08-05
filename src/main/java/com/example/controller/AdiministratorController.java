@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.domain.Administrator;
 import com.example.form.InsertAdministratorForm;
+import com.example.form.LoginForm;
 import com.example.service.AdministratorServise;
 
 /**
@@ -35,6 +36,13 @@ public class AdiministratorController {
     return "administrator/insert";
   }
 
+  /**
+   * 
+   * 管理者情報をインサートし、ログイン画面へリダイレクト
+   * 
+   * @param form フォームから送られてきた管理者情報
+   * @return ログイン画面へリダイレクトするURL
+   */
   @PostMapping("/insert")
   public String insert(InsertAdministratorForm form) {
     Administrator administrator = new Administrator();
@@ -44,7 +52,10 @@ public class AdiministratorController {
   }
 
   @GetMapping("/")
-  publi
+  public String toLogin(LoginForm form) {
+    // フォームを引数で受け取ると、モデルオブジェクトに自動的に格納される
+    return "administrator/login";
+  }
   
 
 }
