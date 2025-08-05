@@ -6,8 +6,6 @@ import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
-import org.springframework.jdbc.support.GeneratedKeyHolder;
-import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import com.example.domain.Administrator;
@@ -49,10 +47,6 @@ public class AdministratorRepository {
     String insertSql 
       = "insert into administrators(name, mail_address, password) "
         + "values(:name, :mailAddress, :password);";
-    // KeyHolder keyHolder = new GeneratedKeyHolder();
-    // String[] keyColumnNames = {"id"};
-    // templete.update(insertSql, param, keyHolder, keyColumnNames);
-    // administrator.setId(keyHolder.getKey().intValue());
     templete.update(insertSql, param);
   }
 

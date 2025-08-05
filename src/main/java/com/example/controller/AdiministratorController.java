@@ -42,6 +42,9 @@ public class AdiministratorController {
     servise.insert(administrator);
     return "redirect:/";
   }
+
+  @GetMapping("/")
+  publi
   
 
 }
