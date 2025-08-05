@@ -49,10 +49,11 @@ public class AdministratorRepository {
     String insertSql 
       = "insert into administrators(name, mail_address, password) "
         + "values(:name, :mailAddress, :password);";
-    KeyHolder keyHolder = new GeneratedKeyHolder();
-    String[] keyColumnNames = {"id"};
-    templete.update(insertSql, param, keyHolder, keyColumnNames);
-    administrator.setId(keyHolder.getKey().intValue());
+    // KeyHolder keyHolder = new GeneratedKeyHolder();
+    // String[] keyColumnNames = {"id"};
+    // templete.update(insertSql, param, keyHolder, keyColumnNames);
+    // administrator.setId(keyHolder.getKey().intValue());
+    templete.update(insertSql, param);
   }
 
   /**

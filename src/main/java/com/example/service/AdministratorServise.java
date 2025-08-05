@@ -18,9 +18,9 @@ public class AdministratorServise {
   @Autowired
   private AdministratorRepository repository;
 
-  // public Administrator load(Integer id) {
-  //   return repository.load(id);
-  // }
+  public void insert(Administrator administrator) {
+     repository.insert(administrator);
+  }
 
   // public 
 }
