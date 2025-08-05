@@ -20,7 +20,7 @@ public class AdministratorServise {
 
   /* 管理者情報を登録します。
    *
-   * @param administrator 登録する管理者情報（名前・メールアドレス・パスワードを含む）
+   * @param administrator 登録する管理者情報
    */
   public void insert(Administrator administrator) {
      repository.insert(administrator);
